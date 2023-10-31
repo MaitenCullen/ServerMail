@@ -3,7 +3,7 @@ const app = express();
 let cors = require('cors');
 const bodyparser =require('body-parser');
 const http = require('http')
-
+const PORT = process.env.PORT || '80';mn
 
 app.use(cors({
     origin:'*',
@@ -22,7 +22,7 @@ function requestController(req, res){
     res.send('hola nodejs')
 }
 const server = http.createServer(requestController)
-const PORT = process.env.PORT || '80';
+
 
 app.listen(PORT, ()=> {
     console.log('escuchando' + PORT)
