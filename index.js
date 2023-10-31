@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-let cors = require('cors');
+const cors = require('cors');
 const bodyparser =require('body-parser');
 const https = require('https');
+let send = require('./controllers/correoController');
 const PORT = process.env.PORT || '80';
 
  app.use(cors());
@@ -15,16 +16,16 @@ const PORT = process.env.PORT || '80';
     res.send('hola nodejs')
 }
 
-const method_not_allowed = (req, res) => {
-    return res.sendStatus(405);
-};
-app.post('/send', cors(), (req, res) => { });
-app.all('/send', method_not_allowed);
+// const method_not_allowed = (req, res) => {
+//     return res.sendStatus(405);
+// };
+app.post('/send', send.sendEmail);
+
 
    app.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+        next();
  });
 
 

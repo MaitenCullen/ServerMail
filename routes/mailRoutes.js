@@ -1,7 +1,7 @@
-const express = require('express');
-const app = express();
+// const express = require('express');
+// const app = express();
 
-let send = require('../controllers/correoController');
+// let send = require('../controllers/correoController');
 
-app.post('/send', send.sendEmail);
-module.exports = app;
+// app.post('/send', send.sendEmail);
+// module.exports = app;
