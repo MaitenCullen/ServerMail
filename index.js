@@ -3,7 +3,7 @@ const app = express();
 let cors = require('cors');
 const bodyparser =require('body-parser');
 const http = require('http')
-const PORT = process.env.PORT || '80';mn
+const PORT = process.env.PORT || '80';
 
 app.use(cors({
     origin:'*',
@@ -22,8 +22,19 @@ function requestController(req, res){
     res.send('hola nodejs')
 }
 const server = http.createServer(requestController)
-
-
+app.get("/", (req, res) => {
+    const htmlResponse = `
+    <html>
+        <head>
+            <title>Probando</title>
+        </head>
+        <body>
+            <h1>Hola</h1>
+        </body>
+    </html>
+    `;
+    res.send(htmlResponse);
+})
 app.listen(PORT, ()=> {
     console.log('escuchando' + PORT)
 })
