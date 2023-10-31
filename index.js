@@ -14,6 +14,15 @@ const PORT = process.env.PORT || '80';
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
      next();
 });
+
+const method_not_allowed = (req, res) => {
+    return res.sendStatus(405);
+};
+
+app.post('/', cors(), (req, res) => { });
+app.all('/', method_not_allowed);
+
+
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extend:false}));
 app.use(require('./routes/mailRoutes'))
