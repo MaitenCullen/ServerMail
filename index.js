@@ -7,7 +7,7 @@ const PORT = process.env.PORT || '80';
 
  app.use(cors({
    origin:['https://9-julio-git-pruebanode-maiten-cullen.vercel.app/', 'http://localhost:4200/'],
-   Methods:['POST', 'GET', 'OPTIONS']
+   methods:['POST', 'GET', 'OPTIONS']
  }));
   app.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
