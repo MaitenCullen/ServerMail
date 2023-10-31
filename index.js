@@ -7,6 +7,7 @@ const PORT = process.env.PORT || '80';
 
 app.use(cors({
     origin:'*',
+    Methods:['POST', 'GET', 'OPTIONS']
 }));
  app.use((req, res, next) => {
      res.header("Access-Control-Allow-Origin", "*");
