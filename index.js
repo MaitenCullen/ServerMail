@@ -5,15 +5,15 @@ const bodyparser =require('body-parser');
 const https = require('https');
 const PORT = process.env.PORT || '80';
 
-app.use(cors({
-    origin:'*',
-    Methods:['POST', 'GET', 'OPTIONS']
-}));
- app.use((req, res, next) => {
-     res.header("Access-Control-Allow-Origin", "*");
-     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-     next();
-});
+// app.use(cors({
+//     origin:'*',
+//     Methods:['POST', 'GET', 'OPTIONS']
+// }));
+//  app.use((req, res, next) => {
+//      res.header("Access-Control-Allow-Origin", "*");
+//      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//      next();
+// });
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extend:false}));
 app.use(require('./routes/mailRoutes'))
