@@ -6,10 +6,18 @@ const https = require('https');
 let send = require('./controllers/correoController');
 const PORT = process.env.PORT || '80';
 
- app.use(cors());
- app.use(bodyparser.json());
- app.use(bodyparser.urlencoded({extend:false}));
+//  app.use(cors());
+const corsOptions = {
+    origin: '*', // Permite cualquier origen
+    methods: 'GET, POST, PUT, DELETE, OPTIONS', // Permite todos los métodos HTTP
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept', // Cabeceras permitidas
+  };
+  
+  app.use(cors(corsOptions));
+ app.use(bodyparser.json({ extended: true }));
+app.use(bodyparser.urlencoded({ extended: true }));
  app.use(require('./routes/mailRoutes'))
+
 
  function requestController(req, res){
     console.log('hola')
@@ -20,8 +28,6 @@ const PORT = process.env.PORT || '80';
 //     return res.sendStatus(405);
 // };
 app.post('/send', send.sendEmail);
-
-
    app.use((req, res, next) => {
       res.header("Access-Control-Allow-Origin", "*");
      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
