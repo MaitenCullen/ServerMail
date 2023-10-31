@@ -6,7 +6,7 @@ const https = require('https');
 const PORT = process.env.PORT || '80';
 
  app.use(cors({
-   origin:'*',
+   origin:['https://9-julio-git-pruebanode-maiten-cullen.vercel.app/', 'http://localhost:4200/'],
    Methods:['POST', 'GET', 'OPTIONS']
  }));
   app.use((req, res, next) => {
