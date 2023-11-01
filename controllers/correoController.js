@@ -23,6 +23,7 @@ const sendEmail = (req=request, resp=response) => {
     Teléfono: ${body.telefono}
     \n
     Mensaje: ${body.mensaje}
+    \n
   `;
 
 const options ={
