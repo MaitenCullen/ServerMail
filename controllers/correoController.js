@@ -18,7 +18,7 @@ const sendEmail = (req=request, resp=response) => {
     const emailBody = `
     Nombre: ${body.nombre}
     \n
-    Empresa/provincia: ${body.empresa}
+    Empresa/Ciudad/provincia: ${body.empresa}
     \n
     Teléfono: ${body.telefono}
     \n
