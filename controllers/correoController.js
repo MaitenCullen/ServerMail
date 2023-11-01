@@ -17,11 +17,11 @@ const sendEmail = (req=request, resp=response) => {
     })
     const emailBody = `
     Nombre: ${body.nombre}
-    <br>
+    \n
     Empresa: ${body.empresa}
-    <br>
+    \n
     Teléfono: ${body.telefono}
-    <br>
+    \n
     Mensaje: ${body.mensaje}
   `;
 
