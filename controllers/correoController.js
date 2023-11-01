@@ -15,6 +15,15 @@ const sendEmail = (req=request, resp=response) => {
         }
 
     })
+    const emailBody = `
+    Nombre: ${body.nombre}
+    <br>
+    Empresa: ${body.empresa}
+    <br>
+    Teléfono: ${body.telefono}
+    <br>
+    Mensaje: ${body.mensaje}
+  `;
 
 const options ={
     from: body.email,
@@ -22,7 +31,7 @@ const options ={
     to: email,
     nombre: body.nombre,
     tel: body.telefono, 
-    text: body.mensaje
+    text: emailBody
 };
 config.sendMail(options,function(error, result){
     if (error) return resp.json({ok:false, msg:error});
