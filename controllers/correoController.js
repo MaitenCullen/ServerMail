@@ -18,7 +18,7 @@ const sendEmail = (req=request, resp=response) => {
     const emailBody = `
     Nombre: ${body.nombre}
     \n
-    Empresa: ${body.empresa}
+    Empresa/provincia: ${body.empresa}
     \n
     Teléfono: ${body.telefono}
     \n
@@ -30,7 +30,7 @@ const options ={
     subject: body.empresa,
     to: email,
     nombre: body.nombre,
-    tel: body.telefono, 
+    telefono: body.telefono, 
     text: emailBody
 };
 config.sendMail(options,function(error, result){
