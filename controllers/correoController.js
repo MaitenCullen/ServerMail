@@ -4,14 +4,14 @@ const nodeMailer = require('nodemailer');
 const sendEmail = (req=request, resp=response) => {
 
     let body = req.body;
-    let email = 'info@diagnostico9dejulio.com.ar';
+    let email = process.env.EMAIL; 
 
     let config = nodeMailer.createTransport({
         host:'c2172200.ferozo.com',
         port:465,
         auth:{
-            user:'info@diagnostico9dejulio.com.ar',
-            pass:'Reig87Tar/'
+            user:email,
+            pass:process.env.PASSWORD
         }
 
     })
